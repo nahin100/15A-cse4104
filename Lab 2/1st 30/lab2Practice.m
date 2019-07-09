@@ -38,11 +38,11 @@ end
 
 stem(n,x);
 
-% Exponential Signal
+% Exponential sequence
 n = [0:100]; x = (1.2).^n;
 Hs = stem(n,x,'b','filled');
 
-% Complex Exponential Signal part 1
+% Complex Exponential sequence part 1
 r=0.9;
 theta=pi/10;
 n = [0:100]; rn = r.^n; phin=mod(theta.*n, 2*pi) 
@@ -50,7 +50,7 @@ figure(1)
 subplot(2,1,1), stem(n,rn,'b','filled');
 subplot(2,1,2), stem(n,phin,'b','filled'), set(gca, 'ylim', [0 +2*pi]);
 
-% Complex Exponential Signal part 2
+% Complex Exponential sequence part 2
 r=0.9;
 theta=pi/10;
 n = [0:100]; 
@@ -60,12 +60,12 @@ figure(1)
 subplot(2,1,1), stem(n,XR,'b','filled');
 subplot(2,1,2), stem(n,XI,'b','filled');
 
-% Cos signal stem plot
+% Cos sequence stem plot
 n = [0:100]; 
 x = 3*cos((pi/16)*n+(pi/13));
 stem(n,x,'b','filled'); 
 
-% Discrete sinusoidal signal for different frequency
+% Discrete sinusoidal sequence for different frequencies
 n=0:1:100;
 x=sin(2*pi*0.01*n);
 subplot(4,1,1), stem(n,x,'b', 'filled');
@@ -78,7 +78,7 @@ n=0:1:100;
 x=sin(2*pi*0.05*n);
 subplot(4,1,3), stem(n,x,'b', 'filled');
 
-% Signal Folding
+% Signal Folding operation
 n=[-1,0,1,2,3];
 x=[5,4,3,2,1];
 
@@ -89,7 +89,7 @@ figure(1)
 subplot(2,1,1), stem(n,x,'b','filled');
 subplot(2,1,2), stem(m,y,'b','filled');
 
-% Even and odd decomposition of signals
+% Even and odd decomposition of sequence
 n=[-1,0,1,2,3];
 x=[5,4,3,2,1];
 
@@ -106,7 +106,7 @@ figure(1)
 subplot(2,1,1), stem(m,xe,'b','filled');
 subplot(2,1,2), stem(m,xo,'b','filled');
 
-% Periodization of singals
+% Periodization of sequence
 n = [-10:9]; x = [5,4,3,2,1];
 xtilde = x' * ones(1,4);
 xtilde = (xtilde(:))';
