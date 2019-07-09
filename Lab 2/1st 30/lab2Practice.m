@@ -1,27 +1,42 @@
 % Plot function usage
-t = 0:0.01:2; % sample points from 0 to 2 in steps of 0.01
-x = sin(2*pi*t); % Evaluate sin(2 pi t)
-plot(t,x,'b'); % Create plot with blue line
-xlabel('t in sec'); ylabel('x(t)'); % Label axis
-title('Plot  of sin(2\pi t)'); % Title plot
+t = 0:0.01:2; 
+x = sin(2*pi*t); 
+plot(t,x,'b'); 
+xlabel('t in sec'); ylabel('x(t)'); 
+title('Plot  of sin(2\pi t)'); 
 
 % Stem function usage
-n = 0:1:40; % sample index from 0 to 20
-x = sin(0.1*pi*n); % Evaluate sin(0.2 pi n)
-Hs = stem(n,x,'b','filled'); % Stem-plot with handle Hs
-set(Hs,'markersize',4); % Change circle size
-xlabel('n'); ylabel('x(n)'); % Label axis
-title('Stem Plot of sin(0.2 \pi n)'); % Title plot
+n = 0:1:40; 
+x = sin(0.1*pi*n); 
+Hs = stem(n,x,'b','filled');
+set(Hs,'markersize',4); 
+xlabel('n'); ylabel('x(n)'); 
+title('Stem Plot of sin(0.2 \pi n)'); 
 
 % Step function implementation
 [x,n] = stepseq(0,-5,10);
 
-Hs = stem(n,x,'b','filled'); % Stem-plot with handle Hs
-xlabel('n'); ylabel('x(n)'); % Label axis
+Hs = stem(n,x,'b','filled'); 
+xlabel('n'); ylabel('x(n)'); 
 title('Stem Plot of sin(0.2 \pi n)');
 
-set(Hs,'markersize',4); % Change circle size
+set(Hs,'markersize',4); 
 set(gca, 'ylim', [-2 +2]);
+
+% Unit sample implementation
+n1=-5;
+n2=5;
+
+n=n1:n2;
+x=zeros(1,length(n));
+
+for i=1:length(n)
+    if n(i)==0
+        x(i)=1
+    end
+end
+
+stem(n,x);
 
 % Exponential Signal
 n = [0:100]; x = (1.2).^n;
@@ -48,7 +63,31 @@ subplot(2,1,2), stem(n,XI,'b','filled');
 % Cos signal stem plot
 n = [0:100]; 
 x = 3*cos((pi/16)*n+(pi/13));
-stem(n,x,'b','filled'); % Stem-plot with handle Hs
+stem(n,x,'b','filled'); 
+
+% Discrete sinusoidal signal for different frequency
+n=0:1:100;
+x=sin(2*pi*0.01*n);
+subplot(4,1,1), stem(n,x,'b', 'filled');
+
+n=0:1:100;
+x=sin(2*pi*0.03*n);
+subplot(4,1,2), stem(n,x,'b', 'filled');
+
+n=0:1:100;
+x=sin(2*pi*0.05*n);
+subplot(4,1,3), stem(n,x,'b', 'filled');
+
+% Signal Folding
+n=[-1,0,1,2,3];
+x=[5,4,3,2,1];
+
+y = fliplr(x);
+m = -fliplr(n);
+
+figure(1)
+subplot(2,1,1), stem(n,x,'b','filled');
+subplot(2,1,2), stem(m,y,'b','filled');
 
 % Even and odd decomposition of signals
 n=[-1,0,1,2,3];
@@ -58,8 +97,7 @@ m = -fliplr(n);
 m1 = min([m,n]); m2 = max([m,n]); m = m1:m2;
 nm = n(1)-m(1); n1 = 1:length(n);
 
-x1 = [zeros(1,nm) x];
-%x1(n1+nm) = x; 
+x1 = [zeros(1,nm) x]; 
 x = x1;
 
 xe = 0.5*(x + fliplr(x)); xo = 0.5*(x - fliplr(x));
@@ -103,31 +141,3 @@ set(gca, 'xticklabel', [{'0'} {'\pi/2'} {'\pi'} {'3\pi/2'} {'2\pi'}])
 
 grid('on');
 grid('minor');
-
-% Unit sample implementation
-n1=-5;
-n2=5;
-
-n=n1:n2;
-x=zeros(1,length(n));
-
-for i=1:length(n)
-    if n(i)==0
-        x(i)=1
-    end
-end
-
-stem(n,x);
-
-% Discrete sinusoidal signal for different frequency
-n=0:1:100;
-x=sin(2*pi*0.01*n);
-subplot(4,1,1), stem(n,x,'b', 'filled');
-
-n=0:1:100;
-x=sin(2*pi*0.03*n);
-subplot(4,1,2), stem(n,x,'b', 'filled');
-
-n=0:1:100;
-x=sin(2*pi*0.05*n);
-subplot(4,1,3), stem(n,x,'b', 'filled');
