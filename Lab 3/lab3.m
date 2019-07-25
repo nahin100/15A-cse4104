@@ -9,8 +9,11 @@ subplot(2,1,2); stem(m,x2); xlabel('n'); ylabel('x(n-3)'); axis([-5,5,1,12]), se
 
 %===============================
 %Convolution
-x = [1,2,3,1];
-h = [1,2,1,-1];
+x = [3,11,7,0,-1,4,2];
+h = [2,3,0,-5,2,1];
+
+nx = [-3,-2,-1,0,1,2,3];
+nh = [-1,0,1,2,3,4];
 
 X = [x,zeros(1,length(h))];
 H = [h,zeros(1,length(x))];
@@ -23,12 +26,11 @@ for n=1:length(x)+length(h)-1
             C(n) = C(n) + X(k) * H(n-k+1);
         end
     end
-    
 end
 
-nyb = nx(1)+nh(1); 
-nye = nx(length(x)) + nh(length(h));
-ny = [nybx:nye];
+nyx = nx(1)+nh(1); 
+nyh = nx(length(x)) + nh(length(h));
+ny = [nyx:nyh];
  
 
 % Frequency analysis ploting (Homework 1)
