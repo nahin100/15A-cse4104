@@ -97,3 +97,12 @@ stem(k,phase);
 ylabel ('Phase');
 xlabel ('K');
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Homework
+%1. Discrete Fourier Series (Synthesis equation)
+%2. Discrete Fourier Transform (DFT)
+%3. Inverse Discrete Fourier Transform (IDFT)
+%4. DFT as linear combination
+%5. Circular Convolution
+
